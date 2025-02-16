@@ -5,9 +5,7 @@ on:
     - 'main'
     # paths
     # - '*.js' # Triggers when the push is to the main branch and there is atleast one change in a js file.
-  pull_request:
-    branches:
-      - main
+
 
 env:
   docker_username: ${{ github.actor }} 
