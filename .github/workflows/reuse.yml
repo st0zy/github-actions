@@ -1,0 +1,17 @@
+name: Reuse other workflow
+on:
+  workflow_dispatch:
+    inputs:
+      testInput:
+        description: "Test input"
+        required: true
+        default: "test"
+
+
+jobs:
+  call-workflow:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      who-to-greet: "${{ github.event.inputs.testInput }}"
+
+
