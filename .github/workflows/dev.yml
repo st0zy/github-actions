@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Clone down repository
         uses: actions/checkout@v4  
+      - name: Cache
+        uses: ./.github/workflows/caching.yml     
       - name: Build App
         run: ci/build-app.sh
       - name: Upload artifact
@@ -35,11 +37,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: [Build]
     steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@v4
-        with: 
-          name: code
-          path: .
+      # - name: Download Artifact
+      #   uses: actions/download-artifact@v4
+      #   with: 
+      #     name: code
+      #     path: .
       - name: Run linting
         uses: super-linter/super-linter/slim@v5
         env:
@@ -52,10 +54,10 @@ jobs:
     permissions:
       packages: write
     steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@v4
-        with: 
-          name: code
-          path: .
+      # - name: Download Artifact
+      #   uses: actions/download-artifact@v4
+      #   with: 
+      #     name: code
+      #     path: .
       - name: build docker
         run: bash ci/build-docker.sh
