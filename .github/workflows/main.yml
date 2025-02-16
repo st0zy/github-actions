@@ -8,3 +8,10 @@ jobs:
       - name: Clone down repository
         uses: actions/checkout@v4       
       - run: ci/build-app.sh
+  Test:
+    runs-on: ubuntu-latest
+    container: gradle:6-jdk11
+    steps:
+      - name: Run Unit tests
+        uses: actions/checkout@v4       
+      - run: ci/unit-test-app.sh
