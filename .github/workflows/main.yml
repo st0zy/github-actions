@@ -7,9 +7,9 @@ jobs:
     steps:
       - name: Clone down repository
         uses: actions/checkout@v4       
+      - name: Build App
         run: ci/build-app.sh
-      - name: Run Unit tests
-        uses: actions/checkout@v4       
+      - name: Run Unit tests    
         run: ci/unit-test-app.sh
       - name: Upload artifact
         uses: actions/upload-artifact@v4
