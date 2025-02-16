@@ -11,7 +11,7 @@ jobs:
   Test:
     runs-on: ubuntu-latest
     container: gradle:6-jdk11
-    depends-on: Build
+    needs: [Build]
     steps:
       - name: Run Unit tests
         uses: actions/checkout@v4       
