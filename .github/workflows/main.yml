@@ -34,7 +34,7 @@ jobs:
         uses: actions/download-artifact@v4
         with: 
           name: code
-          path: /github/workspace
+          path: .
       - name: Run linting
         uses: super-linter/super-linter/slim@v5
         env:
