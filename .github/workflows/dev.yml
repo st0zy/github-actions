@@ -14,8 +14,15 @@ jobs:
     steps:
       - name: Clone down repository
         uses: actions/checkout@v4  
-      - name: Cache
-        uses: ./.github/workflows/caching.yml     
+      - name: Cache Gradle packages
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
       - name: Build App
         run: ci/build-app.sh
       - name: Upload artifact
