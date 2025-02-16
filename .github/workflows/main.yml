@@ -6,6 +6,7 @@ on:
     # paths
     # - '*.js' # Triggers when the push is to the main branch and there is atleast one change in a js file.
 
+
 env:
   docker_username: ${{ github.actor }} 
   docker_password: ${{ secrets.GITHUB_TOKEN }} 
