@@ -24,7 +24,7 @@ jobs:
         uses: actions/download-artifact@v4
         with: 
           name: code
-          path: .
+          path: $GITHUB_WORKSPACE
       - name: Run linting
         uses: super-linter/super-linter/slim@v5
         env:
