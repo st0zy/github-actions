@@ -26,7 +26,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
       - name: Cache Gradle packages
-        run: ls -la ~/.gradle/
+        run: ls -la .
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with: 
