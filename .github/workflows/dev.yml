@@ -18,15 +18,6 @@ jobs:
         uses: gradle/actions/setup-gradle@v3 
         with:
           cache-read-only: false
-      - name: Cache Gradle packages
-        uses: actions/cache@v3
-        with:
-          path: |
-            /root/.gradle/caches
-            /root/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
       - name: Build App
         run: ci/build-app.sh
       - name: Upload artifact
