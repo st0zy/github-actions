@@ -16,6 +16,8 @@ jobs:
         uses: actions/checkout@v4 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3 
+        with:
+          cache-read-only: false
       - name: Build App
         run: ci/build-app.sh
       - name: Cache Gradle packages
