@@ -39,16 +39,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: [Build]
     steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@v4
-        with: 
-          name: code
-          path: .
+      - name: Clone down repository
+        uses: actions/checkout@v4 
       - name: Run linting
         uses: super-linter/super-linter/slim@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BRANCH: main
+          VALIDATE_ALL_CODEBASE: false
 
   Docker:
     runs-on: ubuntu-latest
